@@ -1,0 +1,124 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clothes Store</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    header {
+      background: black;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      margin: 10px;
+      padding: 15px;
+      width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    button {
+      background: black;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+    #cart {
+      position: fixed;
+      right: 0;
+      top: 0;
+      background: white;
+      width: 250px;
+      height: 100%;
+      padding: 10px;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<header>🛍 Clothes Store</header>
+
+<div class="products">
+  
+  <div class="card">
+    <img src="https://via.placeholder.com/200" />
+    <h3>T-Shirt</h3>
+    <p>₹499</p>
+    <button onclick="addToCart('T-Shirt')">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/200" />
+    <h3>Jeans</h3>
+    <p>₹999</p>
+    <button onclick="addToCart('Jeans')">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/200" />
+    <h3>Jacket</h3>
+    <p>₹1499</p>
+    <button onclick="addToCart('Jacket')">Add to Cart</button>
+  </div>
+
+</div>
+
+<div id="cart">
+  <h3>🛒 Cart</h3>
+  <ul id="cartItems"></ul>
+</div>
+
+<script>
+  let cart = [];
+
+  function addToCart(item) {
+    cart.push(item);
+    displayCart();
+  }
+
+  function displayCart() {
+    let cartList = document.getElementById("cartItems");
+    cartList.innerHTML = "";
+
+    cart.forEach(function(item) {
+      let li = document.createElement("li");
+      li.textContent = item;
+      cartList.appendChild(li);
+    });
+  }
+</script>
+
+</body>
+  </html>
